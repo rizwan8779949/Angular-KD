@@ -1,0 +1,54 @@
+
+
+
+
+<div class="modal fade" id="add-document-name">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header custom-modal-header">
+                    <h4 class="modal-title"> Add Document</h4>
+                    <button type="button" class="close" data-dismiss="modal" (click)="formReset();">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                            <div class="form-group col-sm">
+                                <label for="subject">Name<span class="required-star">*</span></label>
+                                <input type="text" class="form-control form-control-sm" placeholder="Document Name" [(ngModel)]="documentName"> 
+                            </div>
+                            <div draggable="true" ngClass="{{dragAreaClass}}">
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        Drag files here
+                                        <a href="javascript:void(0)" (click)="file.click()">
+                                            or click to open
+                                        </a>
+                                        <input type="file"
+                                               #file
+                                               [multiple]="false"
+                                               (change)="onFileChange($event.target.files)"
+                                               style="display:none" />
+                                    </div>
+                                    </div>
+                                </div>
+                  <!-- <label class="choose-upload-selection">
+                    <input type="file" [hidden]="true" (change)="uploadASingleFile($event.target.files)" multiple>
+                       <a class="card-link float-right custom-text-primary">Upload Image</a>
+                      </label> -->
+    <h5 style="text-align: right;">Your Files: {{ fileArrayPush.length }}</h5 >
+
+<!-- <div class="card col-md-12" *ngIf="fileArrayPush.length>0" >
+    <div class="card-body p-0">
+       <button type="button" class="btn btn-outline-secondary mar" *ngFor="let item of fileArrayPush;let i=index">{{ item}}
+             <a (click)="removeBadgesUploadText(i)"><i class="far fa-times-circle" ></i></a></button>
+    </div>
+</div> -->
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                        <input type="submit" class="btn btn-primary btn-sm float-right" value="Add" (click)="addDocumentValid()">
+                </div>
+        </div>
+    </div>
+</div>

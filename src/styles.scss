@@ -1,1 +1,100 @@
 /* You can add global styles to this file, and also import other style files */
+// @import "../node_modules/ngx-toastr/toastr.css";
+@import "../node_modules/ngx-toastr/toastr.css";
+
+
+/* You can add global styles to this file, and also import other style files */
+// @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+// @import './scss/toaster.scss';
+// @import './scss/button.scss';
+// @import './scss//toggle.scss';
+// @import './scss//table-list-custom.scss';
+// @import "../node_modules/angular-calendar/css/angular-calendar.css";
+// @import "./scss//floating-button.scss";
+// // @import '~@fullcalendar/core/main.css';
+// // @import '~@fullcalendar/daygrid/main.css';
+// @import "./scss//card.scss";
+// @import "../node_modules/flatpickr/dist//flatpickr.css";  
+body {
+    font-family: 'Raleway';
+    color: #777;
+    font-size: 15px;
+    overflow-x: hidden;
+  } 
+  .page-top-heading-own{
+    text-align: center;
+    font-size: 25px;
+    text-decoration-line: underline;
+}  
+.page-not-fount-heading{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: 15px;
+  color: #606060;
+}
+.logout-option{
+  cursor: pointer;
+}
+.common-page {
+  padding-top: 20px;
+  overflow: auto;
+  padding-bottom: 20px;
+}
+
+
+// Scrolling
+
+::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 50%;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0e2a3e;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:focus {
+  background: #0e2a3e;
+  cursor: pointer;
+}
+
+.upload-url{
+  width: 100%;
+  border-radius: 50px;
+  height: 40px;    
+}
+
+.required-star {
+  font-size: 28px;
+  color: #e40707;
+  position: relative;
+  top: 8px;
+}
+.btn-add-floating{
+  padding: 0px;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    line-height: 50px;
+    position: fixed;
+    top: 70px;
+    right: 67px;
+    background-color: #5eab95;
+    color: #fff !important;
+    z-index: 2;
+    cursor: pointer;
+}
+.fa-plus{
+  position: relative;
+  top: -4px;
+}        

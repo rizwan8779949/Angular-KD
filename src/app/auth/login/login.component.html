@@ -1,0 +1,40 @@
+<div class="bg-set-color">
+    <div class="container-fluid">
+    <div class="row custom-row" >
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div class="logo">
+            <!-- <img src="../../../assets/images/logo-transparent.png" class="logo-image"> -->
+          </div>
+        <div class="card custom-card-shadow">
+            <!-- <div class="card-header custom-card-header"><u>
+             Login</u>
+            </div> -->
+            
+            <div class="card-body">  
+                <!-- <form [formGroup]="form" (submit)="chekLoginData()"> -->
+              <div class="form-group">
+                  <label>Username</label>
+                  <input type="text" class="form-control" [(ngModel)]="loginDto.email" >
+              </div>
+              <div class="form-group"> 
+                <label>Password</label>
+                <input type="password" class="form-control" [(ngModel)]="loginDto.password" >
+              </div> 
+              <div class="forgot-password">
+                  <!-- <span *ngIf="loginDto.role=='Parent'">Are you new here ? <a (click)="goto('/auth/signup')" class="forgot-password-link">signUp</a></span> -->
+                  <!-- <a class="forgot-password-link" (click)="goto('auth/signup')">signUp</a> -->
+                <!-- <a class="forgot-password-link float-right" (click)="goto('auth/forgot-password')">forgot password</a> -->
+              </div>
+              <div class="form-group mt-4">
+                  <input type="submit" class="btn btn-primary btn-sm float-right" value="Login" (click)="chekLoginData()">
+              </div>
+            <!-- </form> -->
+            </div>
+           
+          </div>
+    </div>  
+    <div class="col-md-4"></div>
+    </div>
+    </div>
+    </div>

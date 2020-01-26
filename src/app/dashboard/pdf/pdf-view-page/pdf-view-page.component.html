@@ -1,0 +1,5 @@
+<div class="View-Heading">View</div>
+<div class="">
+    <iframe [src]='sanitizer.bypassSecurityTrustResourceUrl(pdfUrl)'  width="100%" height="600px" frameborder="0" *ngIf="pdfUrl">
+    </iframe>
+</div>

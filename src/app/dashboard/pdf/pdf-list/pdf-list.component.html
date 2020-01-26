@@ -1,0 +1,63 @@
+<div class="container-fluid common-page">
+    <div class="page-top-heading-own pb-4" >
+            PDF-List</div>
+<div class="col-md-12 custom-col-md-12">
+        <div class="floating-btn-div">
+              <a class="btn-add-floating" (click)="openDocumentModal()"> <i class="fas fa-plus"></i>
+            </a>
+        </div>
+
+
+        <div class="card-body p-0 custom-card-shadow custom-table-responsive">
+                <div class="table-responsive-own " >
+                <table class="table table-striped">
+                    <thead>
+                        <tr >
+                            <th>Name</th>
+                            <th>Link View </th>
+                            <th>Thumb Nail</th> 
+                            <th>Action</th>
+                        </tr>
+                    </thead>  
+                    <tbody *ngIf="listDto.length >0">
+                        <tr *ngFor="let data of listDto;let i=index">
+                            <td>
+                                <div [title]="data.name" *ngIf="data.name">{{data.name}}</div>
+                                <div title="Not Available"  *ngIf="!data.name">---</div>
+                            </td>
+                            <td>
+                                <a href="{{data.link}}" target="_blank">View</a>
+                                <div title="Not Available"  *ngIf="!data.link">---</div>
+                            </td>
+                            <td>
+                                <a href="{{data.thumbnail}}" target="_blank">View</a>
+                                <div title="Not Available"  *ngIf="!data.thumbnail">---</div>
+                            </td>
+                            <td >
+                                    <div class="dropdown">
+                                      <a class="p-3 anchor-ellipsis"  data-toggle="dropdown">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                      </a>
+                                      <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item edit-Option"
+                                               (click)="viewPdfAnothePlace(data)"><i class="fas fa-eye"></i>&nbsp; View</a
+                                            >
+                                          </div>
+                                      </div>   
+                                  </td>
+                        </tr>
+                    </tbody> 
+                    <tbody *ngIf="listDto.length== 0">
+                            <tr>
+                              <td colspan="100%">
+                                <h1 class="page-not-fount-heading">NO Data Available</h1>
+                              </td>
+                            </tr>
+                          </tbody>
+                    </table>
+                </div>
+               
+        </div> 
+</div>
+</div>
+<app-pdf-add (action)="selectedData()"></app-pdf-add>
