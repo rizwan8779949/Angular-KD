@@ -7,12 +7,13 @@ import {PdfRoutingModule} from './pdf-routing.module'
 import { FormsModule } from '@angular/forms';
 import { PdfAddComponent } from './pdf-add/pdf-add.component';
 import { FileUploadModule } from 'ng2-file-upload';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
   declarations: [PdfListComponent, PdfViewPageComponent, PdfAddComponent],
   imports: [
-    CommonModule,SharedModule,PdfRoutingModule,FormsModule,FileUploadModule
+    CommonModule,SharedModule,PdfRoutingModule,FormsModule,FileUploadModule,NgxPaginationModule
   ]
-})  
+})    
 export class PdfModule { }

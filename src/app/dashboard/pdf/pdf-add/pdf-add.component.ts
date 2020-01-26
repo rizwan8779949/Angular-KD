@@ -40,16 +40,12 @@ public hasBaseDropZoneOver: boolean = false;
       }
     }
     addDocumentApi() {
-      // console.log("dto",dto)
       this.fileUpload.append("name",this.documentName)
       this.utils.setLocalStorage("showLoader",'Yes')
       this.api.uploadFileApi(this.fileUpload).subscribe((res:any)=>{
           this.utils.removeLocalStorage("showLoader")
-          this.utils.hideModal("add-document-name");
-          this.action.emit()
-          this.formReset()
-          location.reload()
-          this.toaster.success("Upload Successfully");
+          this.backButton()
+          this.toaster.success("Uploaded Successfully");
         },
         (err: any) => {
           this.utils.removeLocalStorage("showLoader")
@@ -83,12 +79,11 @@ this.router.navigateByUrl(data)
   }  
   dragAreaClass: string;
   onFileChange(file:FileList) {
+    if(this.fileArrayPush.length<1){
     this.fileArrayPush.push(file.item(0).name)
     this.fileToUpload = file.item(0);
    this.fileUpload.append("file", this.fileToUpload, this.fileToUpload.name);
-   console.log(this.fileUpload)
-  // console.log(this.fileUpload)
-    // this.saveFiles(files);
+  }else this.toaster.error("Only 1 file allow")
   }
   ngOnInit() {
     this.dragAreaClass = "dragarea";
@@ -120,12 +115,14 @@ this.router.navigateByUrl(data)
   }
 
   saveFiles(file: FileList) {  
-    if (file.length > 1) this.toaster.error("Only one file at time allow");
-    console.log("files here",file)
+    if(this.fileArrayPush.length<1){
     this.fileArrayPush.push(file.item(0).name)
     this.fileToUpload = file.item(0);
    this.fileUpload.append("file", this.fileToUpload, this.fileToUpload.name);
-   console.log(this.fileUpload)
+  }else this.toaster.error("Only 1 file allow")
+  }
+  backButton(){
+    this.goto("dashboard/pdf-list")
   }
 }
   

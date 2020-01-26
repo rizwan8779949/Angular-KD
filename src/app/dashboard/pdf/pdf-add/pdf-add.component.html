@@ -13,42 +13,67 @@
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                            <div class="form-group col-sm">
-                                <label for="subject">Name<span class="required-star">*</span></label>
-                                <input type="text" class="form-control form-control-sm" placeholder="Document Name" [(ngModel)]="documentName"> 
+                    <div class="form-group col-sm">
+                        <label for="subject">Name<span class="required-star">*</span></label>
+                        <input type="text" class="form-control form-control-sm" placeholder="Document Name" [(ngModel)]="documentName"> 
+                    </div>
+                    <div draggable="true" ngClass="{{dragAreaClass}}">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                Drag files here
+                                <a href="javascript:void(0)" (click)="file.click()">
+                                    or click to open
+                                </a>
+                                <input type="file"
+                                       #file
+                                       [multiple]="false"
+                                       (change)="onFileChange($event.target.files)"
+                                       style="display:none" />
                             </div>
-                            <div draggable="true" ngClass="{{dragAreaClass}}">
-                                <div class="row">
-                                    <div class="col-md-12 text-center">
-                                        Drag files here
-                                        <a href="javascript:void(0)" (click)="file.click()">
-                                            or click to open
-                                        </a>
-                                        <input type="file"
-                                               #file
-                                               [multiple]="false"
-                                               (change)="onFileChange($event.target.files)"
-                                               style="display:none" />
-                                    </div>
-                                    </div>
-                                </div>
-                  <!-- <label class="choose-upload-selection">
-                    <input type="file" [hidden]="true" (change)="uploadASingleFile($event.target.files)" multiple>
-                       <a class="card-link float-right custom-text-primary">Upload Image</a>
-                      </label> -->
-    <h5 style="text-align: right;">Your Files: {{ fileArrayPush.length }}</h5 >
-
-<!-- <div class="card col-md-12" *ngIf="fileArrayPush.length>0" >
-    <div class="card-body p-0">
-       <button type="button" class="btn btn-outline-secondary mar" *ngFor="let item of fileArrayPush;let i=index">{{ item}}
-             <a (click)="removeBadgesUploadText(i)"><i class="far fa-times-circle" ></i></a></button>
-    </div>
-</div> -->
+                            </div>
+                        </div>
+<h5 style="text-align: right;">Your Files: {{ fileArrayPush.length }}</h5 >
                 </div>
                 <!-- Modal footer -->
                 <div class="modal-footer">
                         <input type="submit" class="btn btn-primary btn-sm float-right" value="Add" (click)="addDocumentValid()">
                 </div>
         </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="container-fluid">
+    <div class="main-heading">
+        Upload-File
+    </div>
+    <div class="form-start">
+        <div class="form-group col-sm">
+            <label for="subject">Name<span class="required-star">*</span></label>
+            <input type="text" class="form-control form-control-sm" placeholder="Document Name" [(ngModel)]="documentName"> 
+        </div>
+        <div draggable="true" ngClass="{{dragAreaClass}}">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    Drag files here
+                    <a href="javascript:void(0)" (click)="file.click()">
+                        or click to open
+                    </a>
+                    <input type="file"
+                           #file
+                           [multiple]="false"
+                           (change)="onFileChange($event.target.files)"
+                           style="display:none" />
+                </div>
+                </div>
+            </div>
+<h5 style="text-align: right;">Your Files: {{ fileArrayPush.length }}</h5 >
+    <div class="form-group">
+        <input type="submit" class="btn btn-success btn-sm float-right ml-3" value="Add" (click)="addDocumentValid()">
+        <input type="submit" class="btn btn-primary btn-sm float-right" value="Back" (click)="backButton()">
+    </div>   
     </div>
 </div>

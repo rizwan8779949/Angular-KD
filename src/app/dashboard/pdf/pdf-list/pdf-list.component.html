@@ -20,7 +20,7 @@
                         </tr>
                     </thead>  
                     <tbody *ngIf="listDto.length >0">
-                        <tr *ngFor="let data of listDto;let i=index">
+                        <tr *ngFor="let data of listDto| paginate: { itemsPerPage: 10, currentPage: pageNumber }">
                             <td>
                                 <div [title]="data.name" *ngIf="data.name">{{data.name}}</div>
                                 <div title="Not Available"  *ngIf="!data.name">---</div>
@@ -46,18 +46,21 @@
                                       </div>   
                                   </td>
                         </tr>
-                    </tbody> 
+                    </tbody>  
                     <tbody *ngIf="listDto.length== 0">
                             <tr>
                               <td colspan="100%">
                                 <h1 class="page-not-fount-heading">NO Data Available</h1>
                               </td>
                             </tr>
-                          </tbody>
+                    </tbody>
+                   
+    `
                     </table>
+                    <pagination-controls (pageChange)="pageNumber = $event" class="custom-pagination"></pagination-controls>
                 </div>
                
         </div> 
 </div>
 </div>
-<app-pdf-add (action)="selectedData()"></app-pdf-add>
+<!-- <app-pdf-add (action)="selectedData()"></app-pdf-add> -->

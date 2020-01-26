@@ -9,13 +9,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard, LoginGuardFailed, LoginGuardSuccess } from './shared/Guard/Auth/auth.guard';
+import {NgxPaginationModule} from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,HttpClientModule,FormsModule,ReactiveFormsModule,NgxSpinnerModule, ToastrModule.forRoot(),BrowserAnimationsModule,
+    AppRoutingModule,HttpClientModule,FormsModule,ReactiveFormsModule,NgxSpinnerModule,NgxPaginationModule, ToastrModule.forRoot(),BrowserAnimationsModule,
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]   
